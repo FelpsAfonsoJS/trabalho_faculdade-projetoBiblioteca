@@ -1,11 +1,12 @@
+package model;
+
 public class Aluno {
     private String nome;
     private String ra;
 
     public Aluno(String nome, String ra) {
-        if (nome == null || nome.isEmpty() || ra == null || ra.isEmpty()) {
+        if (nome == null || nome.isEmpty() || ra == null || ra.isEmpty())
             throw new IllegalArgumentException("Dados invalidos");
-        }
         this.nome = nome;
         this.ra = ra;
     }

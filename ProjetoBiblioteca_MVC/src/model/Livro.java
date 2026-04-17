@@ -1,5 +1,6 @@
-public class Livro {
+package model;
 
+public class Livro {
     private static int contador = 1;
 
     private int id;
@@ -8,12 +9,11 @@ public class Livro {
     private int quantidade;
 
     public Livro(String titulo, String autor, int quantidade) {
-        if (titulo == null || titulo.isEmpty()) {
+        if (titulo == null || titulo.isEmpty())
             throw new IllegalArgumentException("Titulo esta vazio");
-        }
-        if (quantidade < 0) {
-            throw new IllegalArgumentException("Quantidade Invalida!");
-        }
+        if (quantidade < 0)
+            throw new IllegalArgumentException("Quantidade invalida!");
+
         this.id = contador++;
         this.titulo = titulo;
         this.autor = autor;
@@ -25,16 +25,11 @@ public class Livro {
     public String getAutor() { return autor; }
     public int getQuantidade() { return quantidade; }
 
-    public void adicionarQuantidade(int qtd) {
-        if (qtd > 0) quantidade += qtd;
-    }
     public void emprestar() {
         if (quantidade > 0) quantidade--;
         else throw new IllegalStateException("Sem estoque");
     }
-    public void devolver() {
-        quantidade++;
-    }
+    public void devolver() { quantidade++; }
 
     @Override
     public String toString() {
